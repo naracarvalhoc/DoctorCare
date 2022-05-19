@@ -30,11 +30,11 @@ body {
 }
 
 body {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-size: 1.6rem;
   text-align: center;
 
-  overflow: overlay; /*coloca o scroll por cima e não somando espaço*/
+ 
   background-color: var(--bg-light);
 }
 
