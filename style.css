@@ -10,9 +10,13 @@
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
+
   --brand-beige: hsl(39, 100%, 97%);
-  --brand-green: hsl(148, 23%, 89%);
+  --brand-light: hsl(148, 23%, 89%);
+  --brand-dark: hsl(170, 100%, 14%);
+
   --bg-light: hsl(180, 14%, 97%);
+  
 
   font-size: 62.5%;
 
@@ -33,7 +37,7 @@ body {
   font-family: "DM Sans";
   font-size: 1.6rem;
   text-align: center;
-
+  overflow: overlay;
  
   background-color: var(--bg-light);
 }
@@ -79,6 +83,43 @@ section header h1 {
 
 img {
   max-width: 100%;
+}
+
+.button {
+  background: var(--primary-color);
+
+  border: none;
+  border-radius: 4rem;
+  width: fit-content;
+
+  margin-bottom: 6rem;
+
+  padding: 1.6rem 3.2rem;
+
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem; /*espaço entre o icone e o texto*/
+
+  text-decoration: none;
+
+  transition: background 200ms;
+}
+
+.button:hover { 
+  background-color: var(--brand-dark);
+}
+
+.social-links {
+  display: flex; /*elementos um ao lado do outro*/
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
 }
 
 /*====== NAVIGATION ===============================*/
@@ -130,12 +171,20 @@ nav button {
   content: '';
   width: 100%;
   height: calc(108rem + var(--nav-height));
-  background-color: var(--brand-green);
+  background-color: var(--brand-light);
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+#home .button {
+    /*se nao colocar margin auto ele preenche o espaço só de um lado da caixa*/
+  /* também poderia colocar margin-inline auto, colocaria o margin de um lado e do outro ao mesmo tempo*/
+  /* padding block coloca o padding em cima e embaixo ao mesmo tempo*/
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #home p {
@@ -144,34 +193,6 @@ nav button {
   font-weight: 400;
   color: var(--paragraph);
   margin-bottom: 3.2rem;
-}
-
-#home button {
-  background: var(--primary-color);
-
-  border: none;
-  border-radius: 4rem;
-
-  margin-bottom: 6rem;
-
-  height: 5.2rem;
-  width: 26.3rem;
-
-  color: white;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem; /*espaço entre o icone e o texto*/
-
-  /*se nao colocar margin auto ele preenche o espaço só de um lado da caixa*/
-  /* também poderia colocar margin-inline auto, colocaria o margin de um lado e do outro ao mesmo tempo*/
-  /* padding block coloca o padding em cima e embaixo ao mesmo tempo*/
-  margin-right: auto;
-  margin-left: auto;
 }
 
 #home img {
@@ -197,7 +218,7 @@ nav button {
   gap: 6rem;
 
   border-radius: 0.6rem;
-  border: solid 1px var(--brand-green);
+  border: solid 1px var(--brand-light);
   background-color: var(--brand-beige);
 }
 
@@ -294,13 +315,6 @@ body.menu-expanded .menu {
   margin-bottom: 8rem;
 }
 
-.social-links {
-  display: flex; /*elementos um ao lado do outro*/
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
-}
-
 body.menu-expanded .logo,
 body.menu-expanded button {
   position: relative;
@@ -339,7 +353,7 @@ body.menu-expanded button path {
   text-align: left;
   gap: 1.6rem;
   background: white;
-  border: 0.1rem solid var(--brand-green);
+  border: 0.1rem solid var(--brand-light);
   border-radius: 0.6rem;
 }
 
@@ -366,4 +380,80 @@ body.menu-expanded button path {
   line-height: 150%;
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+/*====== CONTACT ===============================*/
+
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/*====== FOOTER ===============================*/
+
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+
+  text-align: left;
+
+  color: white;
+}
+
+footer .logo {
+  display: inline-block; /* tag a tem displa.y inline, não aceita margin bottom nem top*/
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: white;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2;
+
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/*====== BACK TO TOP ===============================*/
+
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
 }
