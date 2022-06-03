@@ -1,5 +1,6 @@
 window.addEventListener('scroll', onScroll)
 
+onScroll()
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
@@ -42,4 +43,5 @@ ScrollReveal({
 #services .card
 #about,
 #about header,
-#about .content`)
+#about .content
+`)
