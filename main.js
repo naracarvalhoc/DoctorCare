@@ -8,9 +8,9 @@ function onScroll() {
 
 function showNavOnScroll() {
   if (scrollY > 0) {
-    navigation.classList.add('scroll')
+    nav.classList.add('scroll')
   } else {
-    navigation.classList.remove('scroll')
+    nav.classList.remove('scroll')
   }
 }
 
@@ -30,18 +30,19 @@ function closeMenu() {
   document.body.classList.remove('menu-expanded')
 }
 
-ScrollReveal({
+const scrollReveal = ScrollReveal({
   origin: 'top',
   distance: '30px',
-  duration: 700
-}).reveal(`
-#home, 
-#home img, 
-#home .stat,
-#services,
-#services header,
-#services .card
-#about,
-#about header,
-#about .content
-`)
+  duration: 1000
+})
+
+scrollReveal.reveal(`
+  #home, 
+  #home img, 
+  #home .stats, 
+  #services,
+  #services header,
+  #services .card,
+  #about, 
+  #about header, 
+  #about .content`)

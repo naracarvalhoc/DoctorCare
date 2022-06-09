@@ -7,7 +7,7 @@
 }
 
 :root {
-  --hue: 290;
+  --hue: 170;
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
@@ -17,7 +17,6 @@
   --brand-dark: hsl(var(--hue), 100%, 14%);
 
   --bg-light: hsl(180, 14%, 97%);
-  
 
   font-size: 62.5%;
 
@@ -35,11 +34,11 @@ body {
 }
 
 body {
-  font-family: "DM Sans";
+  font-family: 'DM Sans';
   font-size: 1.6rem;
   text-align: center;
   overflow: overlay;
- 
+
   background-color: var(--bg-light);
 }
 
@@ -112,7 +111,7 @@ img {
   transition: background 200ms;
 }
 
-.button:hover { 
+.button:hover {
   background-color: var(--brand-dark);
 }
 
@@ -128,13 +127,23 @@ img {
   fill: var(--brand-light);
 }
 
-#navigation .logo path[fill*="#00856F"],
+#nav .logo path[fill*='#00856F'],
 #backToTopButton circle {
   fill: var(--primary-color);
-} 
+}
 
+button.open-menu path[stroke*="#00856F"],
 #contact li path {
   stroke: var(--primary-color);
+}
+
+body.menu-expanded #nav .logo path,
+#nav.scroll .logo path {
+  fill: white;
+}
+
+#nav.scroll button.open-menu path[stroke*="00856F"] {
+  stroke: white;
 }
 
 /*====== NAVIGATION ===============================*/
@@ -195,7 +204,7 @@ nav button {
 }
 
 #home .button {
-    /*se nao colocar margin auto ele preenche o espaço só de um lado da caixa*/
+  /*se nao colocar margin auto ele preenche o espaço só de um lado da caixa*/
   /* também poderia colocar margin-inline auto, colocaria o margin de um lado e do outro ao mesmo tempo*/
   /* padding block coloca o padding em cima e embaixo ao mesmo tempo*/
   margin-right: auto;
@@ -475,7 +484,7 @@ footer .social-links {
   visibility: hidden;
 
   transform: translateY(100%);
-  transition: 200ms;
+  transition: 400ms;
 }
 
 #backToTopButton.show {
