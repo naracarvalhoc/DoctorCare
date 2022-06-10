@@ -43,7 +43,7 @@ body {
 }
 
 .wrapper {
-  width: 37.5rem;
+  width: min(50rem, 100%);
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
@@ -132,7 +132,7 @@ img {
   fill: var(--primary-color);
 }
 
-button.open-menu path[stroke*="#00856F"],
+button.open-menu path[stroke*='#00856F'],
 #contact li path {
   stroke: var(--primary-color);
 }
@@ -142,7 +142,7 @@ body.menu-expanded #nav .logo path,
   fill: white;
 }
 
-#nav.scroll button.open-menu path[stroke*="00856F"] {
+#nav.scroll button.open-menu path[stroke*='00856F'] {
   stroke: white;
 }
 
@@ -182,6 +182,11 @@ nav button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+nav .menu,
+nav .close-menu {
+  position: fixed;
 }
 
 /*====== HOME ===============================*/
@@ -227,7 +232,7 @@ nav button {
 }
 
 #home .stats {
-  width: 32.7rem;
+  width: 100%;
 
   padding-block: 4rem;
   /* padding block coloca o padding em cima e embaixo ao mesmo tempo*/
@@ -290,7 +295,6 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded .menu {
-  position: fixed;
   top: 0;
   left: 0;
   background: var(--primary-color);
@@ -491,4 +495,105 @@ footer .social-links {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/*====== RESPONSIVE PC ===============================*/
+
+@media (min-width: 1024px) {
+  /*====== GERAL ===============================*/
+  .wrapper {
+    width: min(112rem, 100%);
+  }
+
+  /*====== NAVIGATION ===============================*/
+
+  /* reset */
+  nav#nav .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+  }
+
+  nav#nav .close-menu,
+  nav#nav .open-menu,
+  nav#nav .social-links {
+    display: none;
+  }
+
+  nav#nav .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#nav .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  nav#nav .menu ul li a {
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+
+  nav#nav .menu a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.4rem;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 40px;
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#nav.scroll .menu ul li a {
+    color: var(--brand-light);
+    opacity: 0.6;
+  }
+
+  nav#nav.scroll .menu a.button {
+    border-color: white;
+    color: white;
+  }
+
+  nav#nav .menu li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  nav#nav .menu li a::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+
+    position: relative;
+    align-content: center;
+    bottom: -1.97rem;
+    left: -0.5rem;
+    padding-inline: 0.8rem;
+    
+    
+    display: block;
+  }
+
+  nav#nav.scroll .menu li a::after {
+    background-color: white;
+  }
 }
