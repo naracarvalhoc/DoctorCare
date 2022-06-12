@@ -5,6 +5,7 @@ function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
 
+
   activateMenuAtCurrentSection(home)
   activateMenuAtCurrentSection(services)
   activateMenuAtCurrentSection(about)
@@ -39,7 +40,6 @@ function activateMenuAtCurrentSection(section) {
   if (sectionBoundaries) {
     menuElement.classList.add('active')
   }
-
 }
 
 function showNavOnScroll() {
